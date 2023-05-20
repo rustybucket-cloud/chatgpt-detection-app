@@ -24,3 +24,6 @@ def predict():
         return jsonify({'prediction': 'ChatGPT', 'score': float(prediction[0][0])})
     else:
         return jsonify({'prediction': 'Human', 'score': float(1 - prediction[0][0])})
+
+if __name__ == "__main__":
+    app.run(debug=True)
