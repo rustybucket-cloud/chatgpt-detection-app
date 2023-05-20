@@ -6,6 +6,8 @@ COPY requirements.txt ./
 
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY ./app ./app
 
-CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
+COPY ./model ./app/model
+
+CMD ["python3", "-m", "flask", "--app", "./app/app", "run", "--host=0.0.0.0"]
