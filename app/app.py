@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import tensorflow as tf
 
@@ -7,14 +7,9 @@ model = tf.keras.models.load_model('app/model')
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/', methods=['GET', 'POST'])
-def hello():
-    if request.method == 'GET':
-      return render_template('index.html')
-
 @app.route('/predict', methods=['POST'])
 def predict():
-    print('prediction')
+    """Endpoint for prediction"""
     text = request.json['text']
     items_to_remove = ["\n", "|", "'"]
     for item in items_to_remove:
