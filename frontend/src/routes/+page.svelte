@@ -19,7 +19,6 @@
 	let showSuccessCopyText: boolean = false
 
 	const getPrediction = async () => {
-		console.log(PUBLIC_API_URL)
 		loading = true
 		const request = await fetch(PUBLIC_API_URL, {
 			method: 'POST',
@@ -60,7 +59,14 @@
 
 <Nav activeTab="model-card" />
 <h1 class="text-4xl">ChatGPT Detection</h1>
-<button on:click={() => showDialog = true} class="hover:bg-indigo-400 p-1 rounded">Get ChatGPT prompt.</button>
+<button
+	on:click={() => {
+		showDialog = true
+	}}
+	class="hover:bg-indigo-400 p-1 rounded"
+>
+	Get ChatGPT prompt.
+</button>
 <form class="flex flex-col gap-2 w-full">
 	<label for="text-input">Enter text and see if it was created by ChatGPT</label>
 	<textarea bind:value={text} on:click={({ currentTarget }) => text = currentTarget.value} id="text-input" class="border-2 border-slate-900 rounded-md resize-none w-full p-2 text-slate-900" cols="30" rows="20"></textarea>
