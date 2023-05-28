@@ -7,7 +7,7 @@
 	import { PUBLIC_API_URL } from '$env/static/public'
 	import Nav from "../components/Nav.svelte";
 	import Clipboard from '../lib/images/clipboard.svg'
-	export const ssr = false
+	export const prerender = false
 
 	let text: string
 	let prediction: string
