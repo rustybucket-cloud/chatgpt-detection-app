@@ -3,7 +3,7 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-<script lang="ts">
+<script lang="ts" context="module">
 	import { PUBLIC_API_URL } from '$env/static/public'
 	import Nav from "../components/Nav.svelte";
 	import Clipboard from '../lib/images/clipboard.svg'
