@@ -5,9 +5,9 @@
 
   export let type: 'bar' | 'line' | 'scatter'
   export let labels: string[]
-  export let datasets: {label: string; data: string|number[]; borderWidth: number}[]
+  export let datasets: {label: string; data: string|number[]; borderWidth?: number}[]
 	export let title: string
-	export let yAxisLabel: string
+	export let yAxisLabel: string|null = null
 	export let xAxisLabel: string
 
   Chart.defaults.color = "#fff";
@@ -16,29 +16,35 @@
 
   onMount(() => {
     if (!browser) return
-    const ctx = chart.getContext('2d')
-		new Chart(ctx, {
+
+		const scales: {x?: any, y?: any} = {}
+		if (yAxisLabel) {
+			scales.y = {
+				beginAtZero: true,
+				title: {
+					display: true,
+					text: yAxisLabel
+				}
+			}
+		}
+
+		if (xAxisLabel) {
+			scales.x = {
+				title: {
+					text: xAxisLabel,
+					display: true
+				}
+			}
+		}
+
+		new Chart(chart, {
 			type,
 			data: {
 				labels,
 				datasets,
 			},
 			options: {
-				scales: {
-					y: {
-						beginAtZero: true,
-						title: {
-							display: true,
-							text: yAxisLabel
-						}
-					},
-					x: {
-						title: {
-							text: xAxisLabel,
-							display: true
-						}
-					}
-				},
+				scales,
 				plugins: {
 					title: {
 						display: true,

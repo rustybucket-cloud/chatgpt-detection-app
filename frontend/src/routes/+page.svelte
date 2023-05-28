@@ -109,7 +109,7 @@
 			{:else if chatGPTLoading}
 				<p class="text-black">Loading...</p>
 			{:else}
-				<textarea bind:value={chatGPTInput} on:change={({ target }) => {chatGPTInput = target.value}} id="ask-chatgpt" class="resize-none border-slate-400 border-4 rounded text-black p-2" rows="10" />
+				<textarea bind:value={chatGPTInput} on:change={({ target }) => {chatGPTInput = target?.value || ''}} id="ask-chatgpt" class="resize-none border-slate-400 border-4 rounded text-black p-2" rows="10" />
 				<button class="text-black bg-indigo-400 rounded p-2" on:click={askChatGPT}>Submit</button>
 			{/if}
 		</form>
