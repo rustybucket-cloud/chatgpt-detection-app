@@ -1,7 +1,5 @@
 <script>
   import "../app.css";
-  export const ssr = false
-  export const prerender = false
 </script>
 
 <main class="min-h-screen bg-cyan-900">
