@@ -1,12 +1,13 @@
 <svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
+	<title>Detect ChatGPT</title>
+	<meta name="description" content="Detect if text was created by ChatGPT" />
 </svelte:head>
 
 <script lang="ts" context="module">
 	import { PUBLIC_API_URL } from '$env/static/public'
 	import Nav from "../components/Nav.svelte";
 	import Clipboard from '../lib/images/clipboard.svg'
+	export const ssr = false
 
 	let text: string
 	let prediction: string
