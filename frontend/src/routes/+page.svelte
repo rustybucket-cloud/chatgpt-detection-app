@@ -3,7 +3,7 @@
 	<meta name="description" content="Detect if text was created by ChatGPT" />
 </svelte:head>
 
-<script lang="ts" context="module">
+<script lang="ts">
 	import { PUBLIC_API_URL } from '$env/static/public'
 	import Nav from "../components/Nav.svelte";
 	import Clipboard from '../lib/images/clipboard.svg'
